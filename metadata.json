@@ -1,0 +1,6 @@
+{
+  "name": "KPM Worksheet Generator",
+  "description": "A professional educational AI tool for generating DSKP KSSR & KSSM compliant worksheets for Malaysian schools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
