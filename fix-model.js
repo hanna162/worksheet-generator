@@ -1,8 +1,6 @@
 import fs from 'fs';
-
 let content = fs.readFileSync('server.ts', 'utf8');
-
-content = content.replace("model: 'gemini-3.5-flash-lite'", "model: 'gemini-2.5-pro'");
-content = content.replace("temperature: 0.7", "temperature: 0.2");
-
+content = content.replace("model: 'gemini-1.5-flash'", "model: 'gemini-3.6-flash'");
+content = content.replace("model: 'gemini-2.5-flash'", "model: 'gemini-3.6-flash'");
+content = content.replace("model: 'gemini-2.0-flash'", "model: 'gemini-3.6-flash'");
 fs.writeFileSync('server.ts', content, 'utf8');

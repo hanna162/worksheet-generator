@@ -72,9 +72,9 @@ RUANG JAWAPAN: (jika diminta)
 SKEMA JAWAPAN: (jika diminta)
 
 PENTING UNTUK PENDIDIKAN ISLAM DAN BAHASA ARAB:
-- Bagi subjek Pendidikan Islam, HANYA gunakan tulisan RUMI (Bahasa Melayu). JANGAN gunakan tulisan Jawi.
-- Bagi subjek Bahasa Arab, anda WAJIB menyediakan soalan dalam teks ARAB dan menyertakan terjemahan Bahasa Melayu (RUMI) di bahagian BAWAH setiap soalan dan di BAWAH setiap pilihan jawapan. Gunakan tag HTML <small> berserta condong untuk teks terjemahan Rumi.
-- Untuk Pendidikan Islam yang mengandungi ayat Al-Quran, MASUKKAN ayat Al-Quran berserta baris.
+- Bagi subjek Pendidikan Islam, HANYA gunakan tulisan RUMI (Bahasa Melayu) untuk teks biasa. JANGAN gunakan tulisan Jawi.
+- Bagi subjek Bahasa Arab, SOALAN KEMBALIKAN SEPERTI BIASA. Gunakan perkataan ARAB (berserta baris) HANYA pada bahagian yang perlu sahaja (contohnya perkataan yang diuji). JANGAN berikan terjemahan untuk pilihan jawapan. Jelas-jelas terus jawapan.
+- AWAS: Untuk Pendidikan Islam yang mengandungi ayat Al-Quran atau Hadis, anda WAJIB menggunakan teks ARAB berserta baris yang lengkap. JANGAN sesekali merumikan ayat Al-Quran.
 
 PENTING UNTUK MATEMATIK & SIMBOL (KSSM / ALGEBRA / PERSAMAAN LINEAR DLL):
 - JANGAN gunakan sintaks LaTeX atau MathJax (seperti $$x$$ , \\(x\\) , \\frac{1}{2}, ^2). Sistem Markdown ini TIDAK menyokong paparan LaTeX.
@@ -87,7 +87,7 @@ PENTING UNTUK JENIS LATIHAN (LATIHAN KHUSUS):
 - Pastikan soalan menepati sepenuhnya kriteria jenis latihan yang dipilih.
 
 PENTING UNTUK VISUAL & GAMBARAJAH:
-- KHAS UNTUK PRASEKOLAH / TAHUN 1 MATEMATIK: Gunakan emoji yang menarik (contoh: 🍎 🍎 + 🍎 = ?) untuk mewakili objek, JANGAN gunakan SVG untuk mengelakkan ralat kod yang rumit untuk soalan ringkas.
+- KHAS UNTUK PRASEKOLAH / TAHUN 1 MATEMATIK / BAHASA ARAB: Gunakan emoji yang menarik dan TEPAT (contoh: 🍎, 👨‍👩‍👦, 🚗) untuk mewakili objek, JANGAN gunakan SVG untuk mengelakkan ralat kod yang rumit untuk soalan ringkas. Pastikan imej/emoji itu wujud, betul, dan padan dengan soalan (contohnya gambar ayah untuk soalan berkaitan ayah).
 - JANGAN sesekali gunakan API imej luaran (seperti pollinations.ai) kerana gambar tidak relevan untuk soalan fakta / matematik.
 - Jika gambarajah SAHAYA diperlukan (contohnya: bentuk pecahan berlorek, poligon, sudut, carta, bentuk geometri 2D/3D untuk murid menengah/tahap tinggi), anda WAJIB membina kod HTML <svg> (Scalable Vector Graphics) secara KEMAS dan TEPAT.
 - Pastikan kod SVG mempunyai saiz yang sesuai (contoh: width="150" height="150"), berlatarkan putih atau telus, menggunakan strok (garisan) hitam/kelabu sesuai untuk cetakan hitam putih kertas A4.
@@ -110,7 +110,7 @@ PENTING UNTUK VISUAL & GAMBARAJAH:
 Sila hasilkan worksheet sekarang mengikut format yang ditetapkan dalam arahan sistem.`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.6-flash',
       contents: prompt,
       config: {
         systemInstruction,

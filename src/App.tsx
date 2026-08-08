@@ -161,7 +161,7 @@ export default function App() {
           <section ref={resultRef} className="w-full max-w-4xl mx-auto bg-slate-200 rounded-2xl p-8 flex flex-col items-center justify-start print:p-0 print:bg-white print:rounded-none">
             {(worksheet) ? (
               (() => {
-                const isRtl = currentSubject === 'Bahasa Arab';
+                const isRtl = false;
                 return (
 
               <>
