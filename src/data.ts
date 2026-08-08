@@ -1,6 +1,5 @@
 export const KPM_DATA = {
   'Prasekolah': {
-    'Bahasa Cina': ['Kenal Huruf (认识字母)', 'Kenal Nombor (认识数字)', 'Kemahiran Mendengar dan Bertutur (Cina)', 'Kemahiran Membaca (Cina)', 'Kemahiran Menulis (Cina)'],
     'Bahasa Melayu': ['Kemahiran Mendengar dan Bertutur', 'Kemahiran Membaca', 'Kemahiran Menulis'],
     'Bahasa Inggeris': ['Listening and Speaking', 'Reading', 'Writing'],
     'Matematik Awal': ['Pengalaman Pranombor', 'Konsep Nombor', 'Operasi Nombor', 'Nilai Wang', 'Masa dan Waktu', 'Bentuk dan Ruang'],
@@ -13,7 +12,6 @@ export const KPM_DATA = {
     'Kemanusiaan': ['Saya dan Keluarga', 'Saya dan Komuniti', 'Saya dan Negara', 'Saya dan Alam Sekitar']
   },
   'Tahun 1 (KSSR)': {
-    'Bahasa Cina': ['Keluarga Saya (我的家庭)', 'Sekolah Saya (我的学校)', 'Kawan Saya (我的朋友)', 'Haiwan (动物)'],
     'Bahasa Melayu': ['Tema 1: Keluarga Penyayang', 'Tema 2: Masyarakat Muhibah', 'Tema 3: Kebersihan dan Kesihatan', 'Tema 4: Keselamatan', 'Tema 5: Negaraku Tercinta', 'Tema 6: Sains, Teknologi dan Inovasi', 'Tema 7: Lindungi Alam', 'Tema 8: Ekonomi dan Kewangan'],
     'Bahasa Inggeris': ['Phonics', 'Intro: Friends', 'Unit 1: At School', 'Unit 2: Let\'s Play!', 'Unit 3: Pet Show', 'Unit 4: Lunchtime'],
     'Matematik': ['Nombor hingga 100', 'Tambah dan Tolak', 'Pecahan', 'Wang', 'Masa dan Waktu', 'Ukuran dan Sukatan', 'Bentuk', 'Data'],
@@ -24,7 +22,6 @@ export const KPM_DATA = {
     'Bahasa Arab': ['Huruf Hijaiah', 'Taaruf (Perkenalan)', 'Peralatan Sekolah', 'Nombor dan Bilangan (1-10)']
   },
   'Tahun 2 (KSSR)': {
-    'Bahasa Cina': ['Aktiviti Harian (日常活动)', 'Hobi (爱好)', 'Makanan (食物)', 'Masa dan Waktu (时间)'],
     'Bahasa Melayu': ['Keluarga Saya', 'Kisah Kejayaan', 'Sains dan Teknologi', 'Alam Sekitar', 'Budaya Bangsa'],
     'Bahasa Inggeris': ['Free Time', 'The Old House', 'Get Dressed', 'The Robot', 'At the Beach'],
     'Matematik': ['Nombor hingga 1000', 'Tambah, Tolak, Darab, Bahagi', 'Pecahan dan Perpuluhan', 'Wang', 'Masa dan Waktu', 'Ukuran dan Sukatan', 'Bentuk', 'Pengurusan Data'],
@@ -35,7 +32,6 @@ export const KPM_DATA = {
     'Bahasa Arab': ['Keluarga Saya', 'Anggota Badan', 'Peralatan Sekolah', 'Nombor dan Bilangan (11-20)']
   },
   'Tahun 3 (KSSR)': {
-    'Bahasa Cina': ['Alam Sekitar (环境)', 'Kebersihan (卫生)', 'Perayaan (节日)', 'Cita-cita (志愿)'],
     'Bahasa Melayu': ['Keluarga Bahagia', 'Hidup Sejahtera', 'Sayangi Alam Sekitar', 'Keselamatan', 'Kebudayaan'],
     'Bahasa Inggeris': ['Welcome!', 'Everyday', 'Right Now', 'Year in, Year Out', 'My New House', 'Food, Please!', 'Out and About', 'On Holiday'],
     'Matematik': ['Nombor hingga 10 000', 'Operasi Asas', 'Pecahan, Perpuluhan dan Peratus', 'Wang', 'Masa dan Waktu', 'Ukuran dan Sukatan', 'Bentuk', 'Kedudukan', 'Data'],
@@ -46,7 +42,6 @@ export const KPM_DATA = {
     'Bahasa Arab': ['Pakaian', 'Warna', 'Hari dan Bulan', 'Nombor dan Bilangan (21-31)']
   },
   'Tahun 4 (KSSR)': {
-    'Bahasa Cina': ['Sains dan Teknologi (科学与科技)', 'Seni dan Budaya (艺术与文化)', 'Kesihatan (健康)', 'Keselamatan (安全)'],
     'Bahasa Melayu': ['Tema: Kemasyarakatan', 'Tema: Kesihatan dan Kebersihan', 'Tema: Keselamatan', 'Tema: Kebudayaan, Kesenian dan Estetika', 'Tema: Alam Sekitar dan Teknologi Hijau'],
     'Bahasa Inggeris': ['Where are you from?', 'My week', 'In the past', 'Celebrations', 'Eating right', 'Getting around', 'Helping out', 'Amazing animals', 'Get active!', 'What\'s the matter?'],
     'Matematik': ['Nombor dan Operasi (hingga 100,000)', 'Pecahan, Perpuluhan dan Peratus', 'Wang', 'Masa dan Waktu', 'Ukuran dan Sukatan', 'Ruang', 'Koordinat, Nisbah dan Kadaran', 'Pengurusan Data'],
@@ -59,7 +54,6 @@ export const KPM_DATA = {
     'Bahasa Arab': ['Bulan Masihi', 'Rumah Saya', 'Sayur-sayuran dan Buah-buahan', 'Nombor dan Bilangan']
   },
   'Tahun 5 (KSSR)': {
-    'Bahasa Cina': ['Sejarah (历史)', 'Geografi (地理)', 'Masyarakat (社会)', 'Ekonomi (经济)'],
     'Bahasa Melayu': ['Kemasyarakatan', 'Kesihatan dan Kebersihan', 'Keselamatan', 'Sejarah, Warisan dan Budi Bahasa', 'Sains, Teknologi dan Inovasi'],
     'Bahasa Inggeris': ['Towns and cities', 'Days', 'Wild life', 'Learning world', 'Food and health', 'Sport', 'Growing up', 'Going away'],
     'Matematik': ['Nombor hingga 1,000,000', 'Pecahan, Perpuluhan dan Peratus', 'Wang', 'Masa dan Waktu', 'Ukuran dan Sukatan', 'Ruang', 'Koordinat, Nisbah dan Kadaran', 'Pengurusan Data'],
@@ -72,7 +66,6 @@ export const KPM_DATA = {
     'Bahasa Arab': ['Aktiviti di Sekolah', 'Di Dapur', 'Makanan dan Minuman', 'Haiwan']
   },
   'Tahun 6 (KSSR)': {
-    'Bahasa Cina': ['Patriotisme (爱国)', 'Pemimpin (领袖)', 'Kewangan (金融)', 'Sukan (运动)'],
     'Bahasa Melayu': ['Jati Diri, Patriotisme dan Kewarganegaraan', 'Sains, Teknologi dan Inovasi', 'Pertanian dan Penternakan', 'Ekonomi, Keusahawanan dan Kewangan', 'Alam Sekitar'],
     'Bahasa Inggeris': ['Emergency!', 'Life in the past', 'Adventure time', 'Cool jobs', 'Getting around', 'How is it made?', 'Music and song', 'Tell me a story'],
     'Matematik': ['Nombor Bulat dan Operasi', 'Pecahan, Perpuluhan dan Peratus', 'Wang', 'Masa dan Waktu', 'Ukuran dan Sukatan', 'Ruang', 'Koordinat, Nisbah dan Kadaran', 'Pengurusan Data dan Kebarangkalian'],

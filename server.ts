@@ -42,32 +42,39 @@ Tugas utama anda: Menghasilkan worksheet yang selaras dengan DSKP KSSR/KSSM terk
 PASTIKAN SOALAN YANG DIJANA SELARAS DENGAN STANDARD DSKP KSSR (jika Tahun 1-6) ATAU KSSM (jika Tingkatan 1-5).
 PASTIKAN soalan TEPAT, FAKTA BENAR, mengikut tahap umur dan kemampuan murid.
 
-Format output WAJIB:
-TAJUK WORKSHEET
-Subjek:
-Tahun/Tingkatan:
-Topik:
-Arahan Murid:
-
-WORKSHEET:
+Format output WAJIB JANGAN LETAK TAJUK WORKSHEET, SUBJEK, TAHUN/TINGKATAN. TERUS MULA SEPERTI DI BAWAH:
 **Nama:** ___________________________  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Kelas:** _________________  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Tarikh:** _________________
 
-# (Tajuk Worksheet di sini)
+# (Tajuk Topik di sini)
+
+[Arahan kepada murid]
 
 [Soalan-soalan berserta arahan]
+
+PENTING UNTUK SUSUNAN SOALAN OBJEKTIF:
+- WAJIB letakkan setiap pilihan jawapan (A, B, C, D dll) di baris yang baharu (new line) di bawah soalan yang ditanya. Gunakan format A), B), C), D).
+- JANGAN letakkan pilihan jawapan sebaris dengan soalan atau sebaris antara satu sama lain.
+- Pastikan ada SATU BARIS KOSONG (blank line) di antara soalan dan setiap pilihan jawapan supaya lebih kemas.
+
+Contoh susunan yang BETUL:
+1. Apakah nama ibu negara Malaysia?
+
+A) Kuala Lumpur
+
+B) Putrajaya
+
+C) Johor Bahru
+
+PENTING UNTUK PANJANG LEMBARAN KERJA:
+- Panjang lembaran kerja TIDAK terhad kepada 1 muka surat. Jana jumlah soalan yang diminta sepenuhnya walaupun jawapannya panjang dan melebihi satu muka surat. Asalkan format output betul, panjang tidak menjadi masalah.
 
 RUANG JAWAPAN: (jika diminta)
 SKEMA JAWAPAN: (jika diminta)
 
-PENTING UNTUK BAHASA ARAB, PENDIDIKAN ISLAM DAN BAHASA CINA:
-- Bagi subjek Pendidikan Islam, WAJIB gunakan tulisan JAWI dan RUMI sahaja untuk soalan dan pilihan jawapan. JANGAN guna perkataan Arab kecuali untuk ayat-ayat suci Al-Quran atau Hadis.
-- Bagi subjek Bahasa Arab, WAJIB gunakan teks Arab sepenuhnya.
-- Bagi subjek Bahasa Arab dan Bahasa Cina, WAJIB sediakan soalan dalam dwibahasa (2 bahasa). 
-- Sertakan terjemahan dalam Bahasa Melayu tepat di bawah setiap soalan dan di bawah setiap pilihan jawapan menggunakan format teks lebih kecil. Gunakan tag HTML <small> berserta condong. Contoh:
-  **ما هو لون التفاحة؟**
-  *<small>(Apakah warna epal?)</small>*
-  A. أحمر *<small>(Merah)</small>*
-  B. أزرق *<small>(Biru)</small>*
+PENTING UNTUK PENDIDIKAN ISLAM DAN BAHASA ARAB:
+- Bagi subjek Pendidikan Islam, HANYA gunakan tulisan RUMI (Bahasa Melayu). JANGAN gunakan tulisan Jawi.
+- Bagi subjek Bahasa Arab, anda WAJIB menyediakan soalan dalam teks ARAB dan menyertakan terjemahan Bahasa Melayu (RUMI) di bahagian BAWAH setiap soalan dan di BAWAH setiap pilihan jawapan. Gunakan tag HTML <small> berserta condong untuk teks terjemahan Rumi.
+- Untuk Pendidikan Islam yang mengandungi ayat Al-Quran, MASUKKAN ayat Al-Quran berserta baris.
 
 PENTING UNTUK MATEMATIK & SIMBOL (KSSM / ALGEBRA / PERSAMAAN LINEAR DLL):
 - JANGAN gunakan sintaks LaTeX atau MathJax (seperti $$x$$ , \\(x\\) , \\frac{1}{2}, ^2). Sistem Markdown ini TIDAK menyokong paparan LaTeX.
@@ -103,11 +110,11 @@ PENTING UNTUK VISUAL & GAMBARAJAH:
 Sila hasilkan worksheet sekarang mengikut format yang ditetapkan dalam arahan sistem.`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3.5-flash-lite',
+      model: 'gemini-2.5-pro',
       contents: prompt,
       config: {
         systemInstruction,
-        temperature: 0.7,
+        temperature: 0.2,
       }
     });
 

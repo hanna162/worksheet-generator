@@ -10,6 +10,7 @@ import { BookOpen, Printer, Download, Copy, Check } from 'lucide-react';
 
 export default function App() {
   const [worksheet, setWorksheet] = useState<string | null>(null);
+  const [currentSubject, setCurrentSubject] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
@@ -19,6 +20,7 @@ export default function App() {
     setIsLoading(true);
     setError(null);
     setWorksheet(null);
+    setCurrentSubject(params.subject);
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
@@ -157,18 +159,25 @@ export default function App() {
 
           {/* Bottom Section (Results) */}
           <section ref={resultRef} className="w-full max-w-4xl mx-auto bg-slate-200 rounded-2xl p-8 flex flex-col items-center justify-start print:p-0 print:bg-white print:rounded-none">
-            {worksheet ? (
+            {(worksheet) ? (
+              (() => {
+                const isRtl = currentSubject === 'Bahasa Arab';
+                return (
+
               <>
                 <div className="w-[210mm] min-h-[297mm] bg-white shadow-2xl p-12 flex flex-col space-y-6 mx-auto print:w-full print:shadow-none print:p-0 print:min-h-0 print:mx-0">
                   <div className="prose prose-slate prose-sm max-w-none prose-headings:font-bold prose-headings:mb-4 prose-p:mb-4 prose-a:text-blue-600 hover:prose-a:text-blue-500 w-full prose-table:w-full prose-table:border-collapse prose-th:border prose-th:border-slate-300 prose-th:p-2 prose-td:border prose-td:border-slate-300 prose-td:p-2">
                     <div 
-                      className="markdown-body print:text-black" 
+                      className={`markdown-body print:text-black ${isRtl ? 'text-right' : 'text-left'}`}
+                      dir={isRtl ? 'rtl' : 'ltr'} 
                       dangerouslySetInnerHTML={{ __html: marked.parse(worksheet, { async: false }) as string }} 
                     />
                   </div>
                 </div>
                 <p className="mt-4 text-xs text-slate-500 font-medium print:hidden">Pratonton A4 • Skala 1:1</p>
               </>
+                );
+              })()
             ) : (
               <div className="bg-white border border-slate-200 border-dashed rounded-xl h-full w-full min-h-[400px] flex items-center justify-center text-slate-400 print:hidden">
                 <div className="text-center max-w-sm px-6">
