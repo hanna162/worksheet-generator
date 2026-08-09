@@ -19,6 +19,7 @@ export interface WorksheetParams {
 interface WorksheetFormProps {
   onGenerate: (params: WorksheetParams) => void;
   isLoading: boolean;
+  onStop?: () => void;
 }
 
 const WORKSHEET_TYPES = [
@@ -51,7 +52,7 @@ const LANGUAGES = ['Bahasa Melayu', 'Bahasa Inggeris', 'Lain-lain'];
 const FORMATS = ['Hitam putih', 'Berwarna', 'Mesra cetakan'];
 const COUNTS = [5, 10, 15, 20, 25, 30, 40, 50];
 
-export default function WorksheetForm({ onGenerate, isLoading }: WorksheetFormProps) {
+export default function WorksheetForm({ onGenerate, isLoading, onStop }: WorksheetFormProps) {
   const defaultLevel = LEVELS[3]; // Tahun 3
   const defaultSubjects = Object.keys(KPM_DATA[defaultLevel as keyof typeof KPM_DATA] || {});
   const defaultSubject = defaultSubjects[0] || '';
@@ -289,20 +290,31 @@ export default function WorksheetForm({ onGenerate, isLoading }: WorksheetFormPr
 
       </div>
 
-      <button
-        type="submit"
-        disabled={isLoading}
-        className="w-full py-4 bg-slate-900 text-white rounded-xl font-bold mt-4 hover:bg-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex justify-center items-center"
-      >
-        {isLoading ? (
-          <>
-            <Loader2 className="animate-spin -ml-1 mr-2 h-5 w-5" />
-            Menjana Worksheet...
-          </>
-        ) : (
-          'Jana Worksheet Sekarang'
+      <div className="flex gap-4 mt-4">
+        <button
+          type="submit"
+          disabled={isLoading}
+          className="flex-1 py-4 bg-slate-900 text-white rounded-xl font-bold hover:bg-black transition-colors disabled:opacity-50 flex justify-center items-center"
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="animate-spin -ml-1 mr-2 h-5 w-5" />
+              Menjana...
+            </>
+          ) : (
+            'Jana Worksheet Sekarang'
+          )}
+        </button>
+        {isLoading && onStop && (
+          <button
+            type="button"
+            onClick={onStop}
+            className="px-6 py-4 bg-red-100 text-red-600 rounded-xl font-bold hover:bg-red-200 transition-colors flex justify-center items-center"
+          >
+            Batal
+          </button>
         )}
-      </button>
+      </div>
     </form>
   );
 }

@@ -16,6 +16,7 @@ export default function App() {
   const [copied, setCopied] = useState(false);
   const [installPrompt, setInstallPrompt] = useState<any>(null);
   const resultRef = useRef<HTMLDivElement>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     const handleBeforeInstallPrompt = (e: any) => {
@@ -38,16 +39,29 @@ export default function App() {
     }
   };
 
+  const handleStop = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+      abortControllerRef.current = null;
+      setIsLoading(false);
+      setError("Penjanaan lembaran kerja telah dibatalkan.");
+    }
+  };
+
   const handleGenerate = async (params: WorksheetParams) => {
     setIsLoading(true);
     setError(null);
     setWorksheet(null);
     setCurrentSubject(params.subject);
+
+    abortControllerRef.current = new AbortController();
+
     try {
       const response = await fetch('/api/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(params),
+        signal: abortControllerRef.current.signal,
       });
 
       if (!response.ok) {
@@ -62,9 +76,15 @@ export default function App() {
         resultRef.current?.scrollIntoView({ behavior: 'smooth' });
       }, 100);
     } catch (err: any) {
+      if (err.name === 'AbortError') {
+        return;
+      }
       setError(err.message || 'An unexpected error occurred');
     } finally {
-      setIsLoading(false);
+      if (abortControllerRef.current) {
+        setIsLoading(false);
+        abortControllerRef.current = null;
+      }
     }
   };
 
@@ -179,7 +199,7 @@ export default function App() {
                 <span className="bg-blue-100 text-blue-600 w-6 h-6 rounded flex items-center justify-center text-xs">1</span> 
                 Maklumat Asas & Tetapan
               </h3>
-              <WorksheetForm onGenerate={handleGenerate} isLoading={isLoading} />
+              <WorksheetForm onGenerate={handleGenerate} isLoading={isLoading} onStop={handleStop} />
               {error && (
                 <div className="mt-4 p-3 bg-red-50 text-red-700 text-sm rounded-md border border-red-100">
                   {error}
