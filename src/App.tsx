@@ -81,7 +81,7 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen bg-[#F1F5F9] font-sans text-slate-800 overflow-hidden">
+    <div className="flex h-screen bg-[#F1F5F9] font-sans text-slate-800 overflow-hidden print:h-auto print:overflow-visible">
       {/* Sidebar */}
       <aside className="w-72 bg-[#0a0f1d] text-slate-300 flex flex-col border-r border-slate-800 print:hidden shrink-0 shadow-2xl z-10 relative">
         <div className="p-6 flex items-center gap-3 border-b border-slate-800/60 bg-[#0f172a]/50">
@@ -89,7 +89,7 @@ export default function App() {
             P
           </div>
           <div>
-            <h1 className="font-bold tracking-tight text-white text-[15px]">Penjana KPM</h1>
+            <h1 className="font-bold tracking-tight text-white text-[15px]">Penjana Soalan</h1>
             <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">AI Worksheet Builder</p>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function App() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col overflow-hidden">
+      <main className="flex-1 flex flex-col overflow-hidden print:overflow-visible">
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 print:hidden shrink-0">
           <div className="flex items-center gap-4">
             <span className="text-sm text-slate-400">Home</span>
@@ -170,7 +170,7 @@ export default function App() {
           </div>
         </header>
 
-        <div className="flex-1 flex flex-col gap-8 p-6 overflow-y-auto">
+        <div className="flex-1 flex flex-col gap-8 p-6 overflow-y-auto print:block print:overflow-visible print:p-0 print:gap-0">
           
           {/* Top Section (Form) */}
           <section className="w-full max-w-3xl mx-auto flex flex-col gap-4 print:hidden shrink-0">

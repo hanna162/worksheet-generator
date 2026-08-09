@@ -5,7 +5,25 @@
   body {
     background-color: white !important;
   }
+  
   @page {
-    margin: 2cm;
+    margin: 1cm;
+  }
+
+  /* Prevent cutting off elements */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  
+  /* Prevent paragraphs and lists from breaking inside if possible */
+  p, li, svg, img {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* The actual markdown content container should allow breaks */
+  .markdown-body {
+    page-break-inside: auto;
   }
 }

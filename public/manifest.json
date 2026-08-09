@@ -1,6 +1,6 @@
 {
-  "name": "Penjana KPM",
-  "short_name": "PenjanaKPM",
+  "name": "Penjana Soalan",
+  "short_name": "PenjanaSoalan",
   "description": "AI Worksheet Builder untuk KPM",
   "start_url": "/",
   "display": "standalone",
