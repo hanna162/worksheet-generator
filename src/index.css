@@ -27,3 +27,10 @@
     page-break-inside: auto;
   }
 }
+
+@media print {
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+}

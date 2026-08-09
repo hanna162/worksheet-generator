@@ -51,6 +51,9 @@ Format output WAJIB JANGAN LETAK TAJUK WORKSHEET, SUBJEK, TAHUN/TINGKATAN. TERUS
 
 [Soalan-soalan berserta arahan]
 
+PENTING UNTUK JARAK/SPACING ANTARA SOALAN:
+- Sila pastikan ada JARAK YANG MENCUKUPI (spacing) antara soalan 1, soalan 2, dan seterusnya. Gunakan double spacing atau tag `<br><br>` di antara soalan jika perlu ruang jawapan.
+
 PENTING UNTUK SUSUNAN SOALAN OBJEKTIF:
 - WAJIB letakkan setiap pilihan jawapan (A, B, C, D dll) di baris yang baharu (new line) di bawah soalan yang ditanya. Gunakan format A), B), C), D).
 - JANGAN letakkan pilihan jawapan sebaris dengan soalan atau sebaris antara satu sama lain.
@@ -69,7 +72,7 @@ PENTING UNTUK PANJANG LEMBARAN KERJA:
 - Panjang lembaran kerja TIDAK terhad kepada 1 muka surat. Jana jumlah soalan yang diminta sepenuhnya walaupun jawapannya panjang dan melebihi satu muka surat. Asalkan format output betul, panjang tidak menjadi masalah.
 
 RUANG JAWAPAN: (jika diminta)
-SKEMA JAWAPAN: (jika diminta)
+SKEMA JAWAPAN: (jika diminta). WAJIB letakkan kod HTML ini <div class=\"page-break\"></div> sebelum tajuk Skema Jawapan supaya ia bermula di muka surat baharu apabila dicetak.
 
 PENTING UNTUK PENDIDIKAN ISLAM DAN BAHASA ARAB:
 - Bagi subjek Pendidikan Islam, HANYA gunakan tulisan RUMI (Bahasa Melayu) untuk teks biasa. JANGAN gunakan tulisan Jawi.
