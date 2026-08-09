@@ -70,7 +70,40 @@ export default function App() {
       }
 
       const data = await response.json();
-      setWorksheet(data.result);
+      let rawResult = data.result;
+      
+      // Remove any markdown code blocks wrapping SVGs to ensure they render as HTML
+      rawResult = rawResult.replace(/\s*```(?:html|xml|svg)?\s*(<svg[\s\S]*?<\/svg>)\s*```/gi, '\n\n$1\n\n');
+      
+      // Also, sometimes AI indents SVG lines with spaces causing them to become code blocks.
+      // We can try to un-indent SVG blocks.
+      const unindentSVG = (str) => {
+        let inSVG = false;
+        // First pass: remove empty lines inside SVG
+        const lines = str.split('\n').filter(line => {
+          if (line.includes('<svg')) inSVG = true;
+          if (inSVG && line.trim() === '') return false;
+          if (line.includes('</svg>')) inSVG = false;
+          return true;
+        });
+        
+        inSVG = false;
+        return lines.map(line => {
+          if (line.includes('<svg')) inSVG = true;
+          let result = line;
+          if (inSVG) {
+            result = line.trimStart();
+            // Remove inline HTML comments which can mess up Markdown parsers
+            result = result.replace(/<!--[\s\S]*?-->/g, '');
+          }
+          if (line.includes('</svg>')) inSVG = false;
+          return result;
+        }).join('\n');
+      };
+      
+      rawResult = unindentSVG(rawResult);
+      
+      setWorksheet(rawResult);
       
       setTimeout(() => {
         resultRef.current?.scrollIntoView({ behavior: 'smooth' });

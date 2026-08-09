@@ -94,7 +94,11 @@ PENTING UNTUK VISUAL & GAMBARAJAH:
 - JANGAN sesekali gunakan API imej luaran (seperti pollinations.ai) kerana gambar tidak relevan untuk soalan fakta / matematik.
 - Jika gambarajah SAHAYA diperlukan (contohnya: bentuk pecahan berlorek, poligon, sudut, carta, bentuk geometri 2D/3D untuk murid menengah/tahap tinggi), anda WAJIB membina kod HTML <svg> (Scalable Vector Graphics) secara KEMAS dan TEPAT.
 - Pastikan kod SVG mempunyai saiz yang sesuai (contoh: width="150" height="150"), berlatarkan putih atau telus, menggunakan strok (garisan) hitam/kelabu sesuai untuk cetakan hitam putih kertas A4.
-- Output kod <svg> secara TERUS di dalam teks anda, ia akan dirender sebagai visual HTML.
+- Output kod <svg> secara TERUS di dalam teks anda.
+- AMARAN SVG: Susun label teks, garisan, dan bentuk dengan teliti. Pastikan tulisan (teks) TIDAK BERTINDAN (no overlapping) antara satu sama lain atau dengan garisan rajah. Berikan ruang yang mencukupi untuk setiap elemen.
+- AMARAN SVG: JANGAN masukkan baris kosong (blank lines) atau komen (<!-- -->) ke dalam kod SVG.
+- AMARAN SVG: JANGAN letak kod <svg> di dalam blok kod (seperti \`\`\`html atau \`\`\`xml). 
+- AMARAN SVG: JANGAN jarakkan (indent) kod <svg>. Tulis kod <svg> dan semua isinya rapat ke kiri (tanpa sebarang 'space' atau 'tab' di awal baris) supaya ia tidak ditafsir sebagai blok teks.
 - Untuk visual selain matematik (seperti carta atau jadual data), anda juga boleh menggunakan Jadual (Table) Markdown.`;
 
     const prompt = `Sila jana worksheet berdasarkan maklumat berikut:
@@ -113,7 +117,7 @@ PENTING UNTUK VISUAL & GAMBARAJAH:
 Sila hasilkan worksheet sekarang mengikut format yang ditetapkan dalam arahan sistem.`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-flash-latest',
       contents: prompt,
       config: {
         systemInstruction,
@@ -126,9 +130,10 @@ Sila hasilkan worksheet sekarang mengikut format yang ditetapkan dalam arahan si
     console.error("Error generating worksheet:", error);
     
     let errorMessage = "Gagal menjana lembaran kerja. Sila cuba lagi.";
-    if (error.message?.includes('429') || error.message?.includes('quota')) {
-      errorMessage = "Kouta penggunaan AI percuma telah habis atau terlalu banyak permintaan serentak. Sila tunggu sebentar dan cuba lagi dalam masa satu minit.";
-    } else if (error.message?.includes('503') || error.message?.includes('UNAVAILABLE')) {
+    const errStr = (error.message || error.toString() || JSON.stringify(error)).toLowerCase();
+    if (errStr.includes('429') || errStr.includes('quota') || errStr.includes('resource_exhausted')) {
+      errorMessage = "Kouta penggunaan AI percuma telah habis atau terlalu banyak permintaan serentak. Sila tunggu seketika (sekitar 1-2 minit) dan cuba lagi.";
+    } else if (errStr.includes('503') || errStr.includes('unavailable') || errStr.includes('overloaded')) {
       errorMessage = "Sistem AI sedang mengalami trafik tinggi (High Demand). Sila cuba sebentar lagi.";
     }
     
